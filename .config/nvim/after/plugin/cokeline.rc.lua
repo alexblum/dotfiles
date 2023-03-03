@@ -73,7 +73,15 @@ require("cokeline").setup(
                 style = function(buffer)
                     return buffer.is_focused and "bold" or nil
                 end
+            },
+            {
+                text = function(buffer)
+                    return buffer.is_modified and "* " or ""
+                end
             }
         }
     }
 )
+
+vim.keymap.set('n', '<leader>p', '<Plug>(cokeline-focus-prev)', {silent = true})
+vim.keymap.set('n', '<leader>n', '<Plug>(cokeline-focus-next)', {silent = true})
