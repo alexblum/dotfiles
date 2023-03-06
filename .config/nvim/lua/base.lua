@@ -26,6 +26,13 @@ vim.opt.maxmempattern = 5000
 -- vim.opt.clipboard = 'unnamedplus' -- Use OS clipboard
 vim.opt.termguicolors = true
 vim.opt.cursorline = true
+vim.opt.listchars = {
+  eol = '⤶',
+  trail = '·',
+  extends = '◀',
+  precedes = '▶',
+}
+vim.opt.list = true
 
 -- vim-signify -> Faster sign updates on CursorHold/CursorHoldI
 vim.opt.updatetime = 100
