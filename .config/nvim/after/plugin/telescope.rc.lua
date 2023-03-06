@@ -11,6 +11,7 @@ local fb_actions = require "telescope".extensions.file_browser.actions
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
+pcall(require('telescope').load_extension, 'live_grep_args')
 
 telescope.setup {
   defaults = {
@@ -51,17 +52,14 @@ vim.keymap.set('n', '<leader>ff',
   function()
     builtin.find_files()
   end)
-vim.keymap.set('n', '<leader>fg', function()
-  builtin.live_grep()
-end)
+--vim.keymap.set('n', '<leader>fg', function()
+--  builtin.live_grep()
+--end)
 vim.keymap.set('n', '<leader>fb', function()
   builtin.buffers()
 end)
 vim.keymap.set('n', '<leader>fh', function()
   builtin.help_tags()
-end)
-vim.keymap.set('n', '<leader>fr', function()
-  builtin.resume()
 end)
 vim.keymap.set("n", "sf", function()
   telescope.extensions.file_browser.file_browser({
@@ -75,3 +73,4 @@ vim.keymap.set("n", "sf", function()
     layout_config = { height = 40 }
   })
 end)
+vim.keymap.set('n', '<leader>fg', require("telescope").extensions.live_grep_args.live_grep_args, { noremap = true })
